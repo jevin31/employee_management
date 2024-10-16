@@ -1,0 +1,29 @@
+<div class="row">
+    <!--Loader-->
+    @if(isLoader){
+    <div class="col-12 text-center">
+        <div class="spinner-grow text-muted"></div>
+        <div class="spinner-grow text-primary"></div>
+        <div class="spinner-grow text-success"></div>
+        <div class="spinner-grow text-info"></div>
+        <div class="spinner-grow text-warning"></div>
+        <div class="spinner-grow text-danger"></div>
+        <div class="spinner-grow text-secondary"></div>
+        <div class="spinner-grow text-dark"></div>
+        <div class="spinner-grow text-light"></div>
+    </div>
+    } @else{
+    <!--You don't have to impo</ng-container>rt Common Module in this case-->
+    @for (item of designationList; track $index){
+    <div class="col-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{item.designation}}</h4>
+                <a href="#" class="card-link">Edit</a>
+                <a href="#" class="card-link">Delete</a>
+            </div>
+        </div>
+    </div>
+    }
+    }
+</div>

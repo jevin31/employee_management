@@ -1,0 +1,26 @@
+<!--Directives-->
+<!-- *ngIf: It is a structural directive that conditionally includes a template based on the value of an expression coerced to Boolean. -->
+<!-- *ngClass: It is a directive that allows you to set the CSS classes dynamically based on the expression evaluation. -->
+<!-- *ngFor: It is a structural directive that repeats a template for each item in a collection. -->
+
+<!--*ngClaass Example-->
+<div class="row ">
+    <div class="col-12 text-center">
+        <!-- Create buttons to switch between the roles and designation components -->
+        <button type="button" (click) = "changeTab('Roles')" class="btn" [ngClass]="currentComponent == 'Roles' ? 'btn-success':'btn-primary'">Roles</button>
+        <button type="button" (click) = "changeTab('Designation')" class="btn" [ngClass]="currentComponent == 'Designation' ? 'btn-success':'btn-primary'">Designation</button>
+    </div>
+</div>
+
+<!--*ngIf Example-->
+<div class="row pt-2">
+    <!-- Render the component based on the currentComponent value -->
+    <div class="col-12" *ngIf="currentComponent == 'Roles'">
+        <!-- Render the roles component -->
+        <app-roles></app-roles>
+    </div>
+    <div class="col-12" *ngIf="currentComponent == 'Designation'">
+        <!-- Render the designation component -->
+        <app-designation></app-designation>
+    </div>
+</div>

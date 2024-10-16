@@ -1,0 +1,123 @@
+
+<!--API Call Example-->
+<!--Making API Call in the Component (Not recommended way)-->
+<div class="row">
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor ="let role of roleList; let srno = index">
+                    <td>{{srno + 1}}</td>
+                    <td>{{role.role}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+    <div class="col-4">
+        <ul> -->
+            <!--*ngFor is used when you have to retrieve the elements-->
+            <!-- <li *ngFor="let item of roleList">{{item.role}}</li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <select>
+            <option *ngFor="let role of roleList" [value]="role.roleID">{{role.role}}</option>
+        </select>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-warning mx-2" *ngFor="let item of roleList">{{item.role}}</button>
+    </div>
+</div> -->
+
+
+
+<!-- <p>roles works!</p>-->
+
+<!--Data Binding Example 1-->
+<!-- <div class="row"> -->
+<!-- <div class="col-3"> -->
+<!--Interpolation-->
+<!--It is used when you want to display the value of a property-->
+<!--It is denoted by double curly braces {{}}-->
+<!-- <p>{{firstName}}</p>
+    </div>
+
+    <div class="col-3">
+        <p>{{version}}</p>
+
+    </div>
+
+    <div class="col-3">
+        <p>{{currentDate}}</p>
+    </div>
+
+    <div class="col-3">
+        <p>{{selectedCity}}</p>
+    </div>
+</div> -->
+
+<!--Data Binding Example 2-->
+<!-- <div class="row">
+    <div class="col-3"> -->
+<!--Property Binding-->
+<!--It is used when you want to provide a value to a property-->
+<!--It is denoted by square brackets []-->
+<!--method 1-->
+<!-- <input type="text" [value]="firstName" class="form-control" />
+    </div> -->
+
+<!-- <div class="col-3"> -->
+<!--method 2-->
+<!-- <input [type]="inputType" />
+    </div> -->
+
+<!-- <div class="col-3"> -->
+<!--Two Way Binding-->
+<!--It is used when </div>you want to provide a value to a property and also want to get the value from the property-->
+<!--It is denoted by square brackets [] and round brackets ()-->
+<!--It uses ngModel-->
+<!--It can only be used with form elements like input, select, textarea-->
+<!-- <input type="text" [(ngModel)]="firstName" /> -->
+<!-- </div> -->
+
+<!-- <div class="col-3">
+        <select [(ngModel)]="selectedCity">
+            <option value="Port Louis">Port Louis</option>
+            <option value="Curepipe">Curepipe</option>
+            <option value="Quatre Bornes">Quatre Bornes</option>
+        </select>
+    </div>
+</div> -->
+
+<!-- <div class="row">
+    <div class="col-3"> -->
+<!--Event Binding-->
+<!--It is used when you want to call a method </div>when an event occurs-->
+<!--It is denoted by round brackets ()-->
+<!-- <button class="btn btn-success" (click)="ShowWelcomeAlert()">Show Alert</button> -->
+<!-- </div> -->
+
+<!-- <div class="col-3"> -->
+<!-- <button class="btn btn-success" (click)="ShowMessage('Welcome React')">Show React Message</button> -->
+<!-- </div> -->
+
+<!-- <div class="col-3"> -->
+<!-- <button class="btn btn-success" (click)="ShowMessage('Welcome Dot Net')">Show Dot Net Message</button> -->
+<!-- </div> -->
+<!--if you want to show warning/red button use "btn btn-danger" class-->
+<!-- </div> -->
