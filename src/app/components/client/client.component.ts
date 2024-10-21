@@ -3,16 +3,20 @@ import { Client } from '../../model/class/client';
 import { FormsModule } from '@angular/forms';
 import { APIResponseModel } from '../../model/class/interface/role';
 import { ClientService } from '../../services/client.service';
+import { AsyncPipe, DatePipe, UpperCasePipe } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-client',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,UpperCasePipe,DatePipe,AsyncPipe], 
   templateUrl: './client.component.html',
   styleUrl: './client.component.css'
 })
 
 export class ClientComponent implements OnInit {
+
+  currentDate:Date = new Date();
 
   clientObj: Client = new Client();
   clientList: Client[] = [];
@@ -20,8 +24,12 @@ export class ClientComponent implements OnInit {
   //inject the client service
   constructor(private clientService: ClientService) { }
 
+  userLists$: Observable<any> = new Observable();
+
+
   ngOnInit(): void {
     this.loadClient();
+    this.userLists$ = this.clientService.getAllUser();
   }
 
   loadClient() {
