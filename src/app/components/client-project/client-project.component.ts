@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
-import { APIResponseModel, Employee } from '../../model/class/interface/role';
+import { APIResponseModel, ClientProject, Employee } from '../../model/class/interface/role';
 import { Client } from '../../model/class/client';
+import { DatePipe } from '@angular/common';
+import { AlertComponent } from "../../reusableComponent/alert/alert.component";
 
 @Component({
   selector: 'app-client-project',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DatePipe, AlertComponent],
   templateUrl: './client-project.component.html',
   styleUrl: './client-project.component.css'
 })
@@ -35,15 +37,35 @@ export class ClientProjectComponent implements OnInit {
   employeeList: Employee[] = [];
   clientList: Client[] = [];
 
+  //signal is used to declare a variable that will be used in the html file
+  firstName = signal("Angular 18");
+
+  projectList = signal<ClientProject[]>([]);
+
+
   ngOnInit(): void {
+    //name is used to declare a variable that will be used in the html file
+    const name = this.firstName();
     this.getAllEmployee();
     this.getAllClient();
+    this.getAllClientProject();
+  }
 
+  changeFName(){
+    //set is used to change the value of the variable
+    this.firstName.set("ReactJS")
   }
 
   getAllEmployee() {
     this.clientSrv.getAllEmployee().subscribe((res: APIResponseModel) => {
       this.employeeList = res.data;
+    });
+  }
+
+
+  getAllClientProject() {
+    this.clientSrv.getAllClientProject().subscribe((res: APIResponseModel) => {
+      this.projectList.set(res.data);
     });
   }
 

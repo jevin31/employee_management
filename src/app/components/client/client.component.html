@@ -4,7 +4,7 @@
         <li>{{item.username}}</li>
     }
 </ul> -->
-
+<app-alert [alertType]="'Success'" [alertMessage]="'Hi from Client Page'"></app-alert>
 <div class="row">
     <div class="col-8">
         <div class="card">
@@ -113,10 +113,11 @@
                         <div class="col-6 text-center">
                             <button class="btn btn-secondary">Reset</button>
                         </div>
-                        <div class="col-6 text-xenter">
-                            <button class="btn btn-success" [disabled]="!form.valid" (click)="OnSaveClient()">
+                        <div class="col-6 text-center">
+                            <app-my-button (onBtnClick)="OnSaveClient($event)" [btnClass]="'btn btn-success'" [btnText]="clientObj.clientId != 0 ? 'Update Client' : 'Save Client'"></app-my-button>                            
+                            <!-- <button class="btn btn-success" [disabled]="!form.valid" (click)="OnSaveClient()">
                                 {{clientObj.clientId != 0 ? 'Update Client' : 'Save Client'}}
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </form>
